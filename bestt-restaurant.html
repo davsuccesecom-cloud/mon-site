@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best.T Lounge Bar — N°1 Fast Food & Terrasse Lounge</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: rgba(201,168,76,0.15);
+  --gold-border: rgba(201,168,76,0.35);
+  --bg: #0c0b09;
+  --bg2: #111009;
+  --bg3: #16140f;
+  --card: #1c1a12;
+  --white: #f5f0e8;
+  --white60: rgba(245,240,232,0.6);
+  --white30: rgba(245,240,232,0.3);
+  --red: #d63031;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden}
+
+/* ---- NAV ---- */
+nav{position:fixed;top:0;width:100%;z-index:999;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(12,11,9,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--gold-border)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--white60);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;transition:.3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:#0c0b09;padding:10px 22px;border-radius:2px;font-weight:600;font-size:.85rem;text-decoration:none;letter-spacing:.05em;transition:.3s}
+.nav-cta:hover{background:#e8c05a;color:#0c0b09}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:var(--gold);border-radius:2px;transition:.3s;display:block}
+.mobile-menu{display:none;position:fixed;top:70px;left:0;width:100%;background:rgba(12,11,9,0.98);padding:24px 5%;flex-direction:column;gap:20px;z-index:998;border-bottom:1px solid var(--gold-border)}
+.mobile-menu a{color:var(--white60);text-decoration:none;font-size:1rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.mobile-menu.open{display:flex}
+
+/* ---- HERO ---- */
+#hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0c0b09 0%,#1a1508 50%,#0c0b09 100%)}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center bottom,rgba(201,168,76,0.08) 0%,transparent 70%)}
+.hero-img-container{position:absolute;inset:0;overflow:hidden}
+.hero-img-container img{width:100%;height:100%;object-fit:cover;opacity:0.22;filter:saturate(0.8)}
+.hero-gradient{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(12,11,9,0.7) 0%,rgba(12,11,9,0.3) 40%,rgba(12,11,9,0.85) 100%)}
+.hero-content{position:relative;text-align:center;padding:0 20px;max-width:800px}
+.hero-badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:6px 18px;margin-bottom:28px;border-radius:1px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,8vw,6rem);font-weight:700;line-height:1.05;margin-bottom:20px}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:1rem;color:var(--white60);line-height:1.7;max-width:520px;margin:0 auto 36px}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:#0c0b09;padding:14px 32px;font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:.3s;border:none;cursor:pointer}
+.btn-primary:hover{background:#e8c05a;transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,0.3)}
+.btn-outline{border:1px solid var(--gold-border);color:var(--white);padding:14px 32px;font-weight:600;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:.3s;background:transparent}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-light)}
+.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--white30);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+.scroll-indicator::after{content:'';width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent)}
+
+/* ---- SECTION TITLES ---- */
+.section-label{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.15;margin-bottom:16px}
+.section-title em{font-style:italic;color:var(--gold)}
+.section-sub{color:var(--white60);line-height:1.75;font-size:.95rem;max-width:520px}
+.gold-line{width:60px;height:2px;background:var(--gold);margin:20px 0}
+section{padding:100px 5%}
+.section-centered{text-align:center}
+.section-centered .section-sub{margin:0 auto}
+.section-centered .gold-line{margin:20px auto}
+
+/* ---- STATS BAR ---- */
+#stats{padding:50px 5%;background:var(--bg3);border-top:1px solid var(--gold-border);border-bottom:1px solid var(--gold-border)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.stat-item{padding:20px}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:var(--gold)}
+.stat-label{font-size:.75rem;color:var(--white60);letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+
+/* ---- A PROPOS ---- */
+#about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-imgs{position:relative;height:500px}
+.about-img-main{position:absolute;width:78%;height:85%;object-fit:cover;border-radius:3px;top:0;left:0;border:1px solid var(--gold-border)}
+.about-img-secondary{position:absolute;width:50%;height:50%;object-fit:cover;border-radius:3px;bottom:0;right:0;border:2px solid var(--gold)}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}
+.feature-card{padding:20px;border:1px solid var(--gold-border);border-radius:3px;background:var(--card)}
+.feature-icon{font-size:1.4rem;color:var(--gold);margin-bottom:10px}
+.feature-title{font-weight:600;font-size:.9rem;margin-bottom:6px}
+.feature-text{font-size:.8rem;color:var(--white60);line-height:1.6}
+
+/* ---- MENU ---- */
+#menu{background:var(--bg)}
+.menu-tabs{display:flex;gap:4px;margin-bottom:50px;background:var(--bg3);padding:6px;border-radius:3px;width:fit-content;flex-wrap:wrap}
+.menu-tab{padding:10px 24px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border:none;background:transparent;color:var(--white60);border-radius:2px;transition:.3s}
+.menu-tab.active{background:var(--gold);color:#0c0b09}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.menu-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;transition:.3s;cursor:pointer}
+.menu-card:hover{border-color:var(--gold-border);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.4)}
+.menu-card-img{width:100%;height:200px;object-fit:cover;display:block;transition:.3s}
+.menu-card:hover .menu-card-img{transform:scale(1.04)}
+.menu-card-img-wrap{overflow:hidden;position:relative}
+.menu-badge{position:absolute;top:12px;right:12px;background:var(--gold);color:#0c0b09;font-size:.65rem;font-weight:700;letter-spacing:.1em;padding:4px 10px;border-radius:1px;text-transform:uppercase}
+.menu-card-body{padding:20px}
+.menu-card-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:6px}
+.menu-card-desc{font-size:.8rem;color:var(--white60);line-height:1.6;margin-bottom:14px}
+.menu-card-footer{display:flex;align-items:center;justify-content:space-between}
+.menu-card-price{font-size:1.1rem;font-weight:700;color:var(--gold)}
+.menu-order-btn{background:transparent;border:1px solid var(--gold-border);color:var(--gold);padding:7px 16px;font-size:.75rem;font-weight:600;border-radius:2px;cursor:pointer;transition:.3s;text-decoration:none}
+.menu-order-btn:hover{background:var(--gold);color:#0c0b09}
+
+/* ---- PROMO ---- */
+#promo{background:var(--bg3)}
+.promo-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:stretch}
+.promo-feature{background:var(--card);border:1px solid var(--gold-border);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+.promo-img{width:100%;height:280px;object-fit:cover}
+.promo-body{padding:28px;flex:1}
+.promo-tag{display:inline-block;background:var(--gold);color:#0c0b09;font-size:.65rem;font-weight:700;letter-spacing:.15em;padding:4px 12px;text-transform:uppercase;border-radius:1px;margin-bottom:16px}
+.promo-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;margin-bottom:10px}
+.promo-text{font-size:.85rem;color:var(--white60);line-height:1.7;margin-bottom:20px}
+.promo-price{font-size:1.4rem;font-weight:700;color:var(--gold)}
+.promo-price s{color:var(--white30);font-size:1rem;margin-right:8px;font-weight:400}
+
+/* ---- EVENTS ---- */
+#events{background:var(--bg2)}
+.events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.event-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;transition:.3s}
+.event-card:hover{border-color:var(--gold-border);transform:translateY(-3px)}
+.event-img-wrap{position:relative;overflow:hidden;height:220px}
+.event-img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.event-card:hover .event-img{transform:scale(1.05)}
+.event-date-badge{position:absolute;top:16px;left:16px;background:var(--gold);color:#0c0b09;padding:8px 14px;border-radius:2px;text-align:center;line-height:1.2}
+.event-date-day{font-size:1.3rem;font-weight:700;display:block}
+.event-date-month{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.event-body{padding:22px}
+.event-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.event-meta{display:flex;gap:16px;font-size:.75rem;color:var(--white60);margin-bottom:12px}
+.event-meta span{display:flex;align-items:center;gap:5px}
+.event-desc{font-size:.82rem;color:var(--white60);line-height:1.6}
+
+/* ---- GALLERY ---- */
+#gallery{background:var(--bg)}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:12px}
+.gallery-item{overflow:hidden;border-radius:3px;cursor:pointer;position:relative}
+.gallery-item:first-child{grid-column:1/3;grid-row:1/3}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:.4s;display:block}
+.gallery-item:hover img{transform:scale(1.06)}
+.gallery-item::after{content:'';position:absolute;inset:0;background:rgba(201,168,76,0);transition:.3s}
+.gallery-item:hover::after{background:rgba(201,168,76,0.12)}
+.gallery-item{min-height:180px}
+.gallery-item:first-child{min-height:300px}
+
+/* ---- CONTACT ---- */
+#contact{background:var(--bg3)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:28px}
+.contact-item{display:flex;gap:20px;align-items:flex-start}
+.contact-icon{width:44px;height:44px;background:var(--gold-light);border:1px solid var(--gold-border);border-radius:2px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1rem;flex-shrink:0}
+.contact-label{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.contact-value{font-size:.95rem;color:var(--white);line-height:1.6}
+.social-links{display:flex;gap:12px;margin-top:8px}
+.social-link{width:40px;height:40px;border:1px solid var(--gold-border);border-radius:2px;display:flex;align-items:center;justify-content:center;color:var(--white60);text-decoration:none;font-size:1rem;transition:.3s}
+.social-link:hover{background:var(--gold);color:#0c0b09;border-color:var(--gold)}
+.cta-block{background:linear-gradient(135deg,var(--bg),#1a1508);border:1px solid var(--gold-border);border-radius:4px;padding:40px;text-align:center}
+.cta-block h3{font-family:'Cormorant Garamond',serif;font-size:2rem;margin-bottom:12px}
+.cta-block p{color:var(--white60);font-size:.9rem;line-height:1.7;margin-bottom:28px}
+.whatsapp-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 32px;border-radius:2px;font-weight:700;font-size:.9rem;text-decoration:none;transition:.3s}
+.whatsapp-btn:hover{background:#1fba59;transform:translateY(-2px)}
+
+/* ---- FOOTER ---- */
+footer{background:#070605;border-top:1px solid var(--gold-border);padding:50px 5% 30px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:40px}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--gold);margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--white60);line-height:1.7;max-width:280px}
+.footer-col h5{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul li a{font-size:.85rem;color:var(--white60);text-decoration:none;transition:.3s}
+.footer-col ul li a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;align-items:center;justify-content:space-between;font-size:.75rem;color:var(--white30)}
+
+/* ---- STICKY WA ---- */
+.sticky-wa{position:fixed;bottom:24px;right:24px;z-index:990;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,0.4);transition:.3s}
+.sticky-wa:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(37,211,102,0.5)}
+
+/* ============================
+   CMS ADMIN PANEL
+   ============================ */
+#cms-toggle-btn{position:fixed;bottom:24px;left:24px;z-index:990;background:var(--card);border:1px solid var(--gold-border);color:var(--gold);padding:10px 18px;border-radius:3px;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(0,0,0,0.4);transition:.3s}
+#cms-toggle-btn:hover{background:var(--gold);color:#0c0b09}
+
+#cms-panel{position:fixed;top:0;right:-460px;width:440px;height:100vh;background:#111009;border-left:1px solid var(--gold-border);z-index:10000;overflow-y:auto;transition:.35s cubic-bezier(.4,0,.2,1);box-shadow:-20px 0 60px rgba(0,0,0,0.6)}
+#cms-panel.open{right:0}
+.cms-header{padding:24px;border-bottom:1px solid var(--gold-border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#111009;z-index:2}
+.cms-header h2{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold)}
+.cms-close{background:none;border:none;color:var(--white60);font-size:1.2rem;cursor:pointer;padding:4px;transition:.2s}
+.cms-close:hover{color:var(--gold)}
+.cms-body{padding:24px;display:flex;flex-direction:column;gap:0}
+.cms-section{border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0}
+.cms-section:last-child{border-bottom:none}
+.cms-section-title{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cms-field{margin-bottom:14px}
+.cms-label{font-size:.75rem;color:var(--white60);margin-bottom:6px;display:block;letter-spacing:.05em}
+.cms-input{width:100%;padding:10px 12px;background:#1c1a12;border:1px solid rgba(255,255,255,0.1);border-radius:2px;color:var(--white);font-size:.85rem;font-family:'Outfit',sans-serif;transition:.2s;outline:none}
+.cms-input:focus{border-color:var(--gold-border)}
+.cms-textarea{width:100%;padding:10px 12px;background:#1c1a12;border:1px solid rgba(255,255,255,0.1);border-radius:2px;color:var(--white);font-size:.85rem;font-family:'Outfit',sans-serif;resize:vertical;min-height:80px;outline:none;transition:.2s}
+.cms-textarea:focus{border-color:var(--gold-border)}
+.cms-img-field{display:flex;flex-direction:column;gap:8px}
+.cms-img-preview{width:100%;height:120px;object-fit:cover;border-radius:2px;border:1px solid var(--gold-border)}
+.cms-file-btn{display:inline-flex;align-items:center;gap:8px;background:var(--bg3);border:1px dashed var(--gold-border);color:var(--gold);padding:10px 14px;border-radius:2px;font-size:.78rem;cursor:pointer;font-weight:500;width:100%;justify-content:center;transition:.2s}
+.cms-file-btn:hover{background:var(--gold-light)}
+.cms-file-input{display:none}
+.cms-save-btn{width:100%;padding:13px;background:var(--gold);color:#0c0b09;border:none;border-radius:2px;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:'Outfit',sans-serif;transition:.3s;margin-top:4px}
+.cms-save-btn:hover{background:#e8c05a}
+.cms-reset-btn{width:100%;padding:10px;background:transparent;color:var(--white30);border:1px solid rgba(255,255,255,0.1);border-radius:2px;font-size:.75rem;cursor:pointer;font-family:'Outfit',sans-serif;transition:.3s;margin-top:8px}
+.cms-reset-btn:hover{color:var(--red);border-color:var(--red)}
+.cms-tabs{display:flex;gap:4px;margin-bottom:24px;background:var(--bg);padding:4px;border-radius:2px}
+.cms-tab{flex:1;padding:8px;text-align:center;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border:none;background:transparent;color:var(--white60);border-radius:1px;transition:.2s}
+.cms-tab.active{background:var(--gold);color:#0c0b09}
+.cms-tab-content{display:none}
+.cms-tab-content.active{display:block}
+.cms-status{font-size:.75rem;color:#2ecc71;text-align:center;padding:8px;background:rgba(46,204,113,0.1);border-radius:2px;display:none}
+.cms-status.show{display:block}
+.menu-item-cms{background:var(--bg);border:1px solid rgba(255,255,255,0.06);border-radius:3px;padding:14px;margin-bottom:10px}
+.menu-item-cms-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;cursor:pointer}
+.menu-item-cms-title{font-size:.85rem;font-weight:600;color:var(--white)}
+.menu-item-expand{color:var(--gold);font-size:.8rem;background:none;border:none;cursor:pointer}
+.menu-item-body{display:none}
+.menu-item-body.open{display:block}
+
+/* ---- RESPONSIVE ---- */
+@media(max-width:900px){
+  .about-grid,.contact-grid,.promo-grid,.footer-top{grid-template-columns:1fr;gap:40px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-item:first-child{grid-column:1/3;grid-row:auto}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .about-imgs{height:320px}
+  #cms-panel{width:100%;right:-100%}
+}
+@media(max-width:600px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .about-features{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column;align-items:center}
+  section{padding:70px 4%}
+}
+
+/* ---- ANIMATIONS ---- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.15s}
+.reveal-delay-2{transition-delay:.3s}
+.reveal-delay-3{transition-delay:.45s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo" id="nav-logo-text">best.t</a>
+  <ul class="nav-links">
+    <li><a href="#about">À Propos</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#promo">Promos</a></li>
+    <li><a href="#events">Événements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/22891092121" target="_blank" class="nav-cta">Commander</a>
+  <button class="hamburger" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="toggleMobile()">À Propos</a>
+  <a href="#menu" onclick="toggleMobile()">Menu</a>
+  <a href="#promo" onclick="toggleMobile()">Promos</a>
+  <a href="#events" onclick="toggleMobile()">Événements</a>
+  <a href="#contact" onclick="toggleMobile()">Contact</a>
+  <a href="https://wa.me/22891092121" target="_blank">Commander sur WhatsApp</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-img-container">
+    <img id="hero-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80" alt="Best.T Lounge Bar">
+  </div>
+  <div class="hero-gradient"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge" id="hero-badge-text">Lounge Bar & Fast Food — Lomé</div>
+    <h1 class="hero-title" id="hero-title">L'Art de <em>Bien Manger</em>,<br>le Plaisir de <em>Bien Vivre</em></h1>
+    <p class="hero-sub" id="hero-subtitle">Cuisine locale, ingrédients naturels, terrasse lounge et service d'exception. Le N°1 des restaurants fast food de la capitale.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/22891092121" target="_blank" class="btn-primary">🍽️ Commander Maintenant</a>
+      <a href="#menu" class="btn-outline">Voir le Menu</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">Découvrir</div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-num" id="stat1-num">5+</div>
+      <div class="stat-label" id="stat1-label">Années d'Excellence</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-num" id="stat2-num">200+</div>
+      <div class="stat-label" id="stat2-label">Plats au Menu</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-num" id="stat3-num">10K+</div>
+      <div class="stat-label" id="stat3-label">Clients Satisfaits</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-num" id="stat4-num">7j/7</div>
+      <div class="stat-label" id="stat4-label">Ouvert Tous les Jours</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-imgs reveal">
+      <img class="about-img-main" id="about-img-main" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Restaurant">
+      <img class="about-img-secondary" id="about-img-secondary" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" alt="Plats">
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="section-label">Qui Sommes-Nous</div>
+      <h2 class="section-title" id="about-title">N°1 des <em>Fast Food</em> &<br>Terrasses Lounges</h2>
+      <div class="gold-line"></div>
+      <p id="about-text" style="color:var(--white60);line-height:1.8;font-size:.95rem;margin-bottom:28px">Chez Best.T, nous avons un seul patron : notre Client. Nous cuisinons avec des produits locaux et des ingrédients naturels pour vous offrir une expérience culinaire authentique et inoubliable dans un cadre lounge exceptionnel.</p>
+      <div class="about-features">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+          <div class="feature-title">Produits Locaux</div>
+          <div class="feature-text">Ingrédients frais et naturels sélectionnés localement.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+          <div class="feature-title">Livraison Rapide</div>
+          <div class="feature-text">Service de livraison ultra-rapide et efficace.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-star"></i></div>
+          <div class="feature-title">Accueil Premium</div>
+          <div class="feature-text">Service chaleureux et attrayant en terrasse lounge.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-heart"></i></div>
+          <div class="feature-title">Passion Culinaire</div>
+          <div class="feature-text">Chaque plat préparé avec amour et expertise.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="section-centered reveal">
+    <div class="section-label">Notre Menu</div>
+    <h2 class="section-title">Nos Spécialités <em>Signature</em></h2>
+    <div class="gold-line"></div>
+    <p class="section-sub">Des saveurs authentiques préparées avec des ingrédients frais et locaux pour un voyage culinaire unique.</p>
+  </div>
+  <div style="margin-top:40px">
+    <div class="menu-tabs">
+      <button class="menu-tab active" onclick="filterMenu('all',this)">Tout</button>
+      <button class="menu-tab" onclick="filterMenu('fast',this)">Fast Food</button>
+      <button class="menu-tab" onclick="filterMenu('local',this)">Cuisine Locale</button>
+      <button class="menu-tab" onclick="filterMenu('drinks',this)">Boissons</button>
+    </div>
+    <div class="menu-grid" id="menu-grid">
+      <!-- Generated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- PROMO -->
+<section id="promo">
+  <div class="section-centered reveal">
+    <div class="section-label">Offres Spéciales</div>
+    <h2 class="section-title">Nos Packs <em>Promo</em></h2>
+    <div class="gold-line"></div>
+  </div>
+  <div class="promo-grid" style="margin-top:50px">
+    <div class="promo-feature reveal">
+      <img class="promo-img" id="promo1-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80" alt="Pack Promo 1">
+      <div class="promo-body">
+        <div class="promo-tag">🔥 Best Seller</div>
+        <h3 class="promo-title" id="promo1-title">Pack Duo Gourmand</h3>
+        <p class="promo-text" id="promo1-text">2 burgers maison + 2 frites + 2 boissons fraîches. Le combo parfait pour partager un moment savoureux.</p>
+        <div class="promo-price"><s>4 500 FCFA</s> <span id="promo1-price">3 200 FCFA</span></div>
+        <a href="https://wa.me/22891092121?text=Je veux le Pack Duo Gourmand" target="_blank" class="btn-primary" style="margin-top:20px;display:inline-block;font-size:.8rem">Commander ce Pack</a>
+      </div>
+    </div>
+    <div class="promo-feature reveal reveal-delay-1">
+      <img class="promo-img" id="promo2-img" src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&q=80" alt="Pack Promo 2">
+      <div class="promo-body">
+        <div class="promo-tag" style="background:var(--red)">⚡ Limité</div>
+        <h3 class="promo-title" id="promo2-title">Pack Famille XL</h3>
+        <p class="promo-text" id="promo2-text">4 plats locaux + salade + dessert maison + 4 boissons. Idéal pour régaler toute la famille.</p>
+        <div class="promo-price"><s>9 000 FCFA</s> <span id="promo2-price">6 500 FCFA</span></div>
+        <a href="https://wa.me/22891092121?text=Je veux le Pack Famille XL" target="_blank" class="btn-primary" style="margin-top:20px;display:inline-block;font-size:.8rem">Commander ce Pack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="section-centered reveal">
+    <div class="section-label">Nos Événements</div>
+    <h2 class="section-title">Vivez des <em>Moments</em> Inoubliables</h2>
+    <div class="gold-line"></div>
+  </div>
+  <div class="events-grid" style="margin-top:50px" id="events-grid">
+    <!-- Generated by JS -->
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" style="padding-bottom:60px">
+  <div class="section-centered reveal">
+    <div class="section-label">Notre Univers</div>
+    <h2 class="section-title">Galerie <em>Best.T</em></h2>
+    <div class="gold-line"></div>
+  </div>
+  <div class="gallery-grid" style="margin-top:50px" id="gallery-grid">
+    <!-- Generated by JS -->
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="section-label">Nous Trouver</div>
+      <h2 class="section-title">Venez Nous <em>Rendre Visite</em></h2>
+      <div class="gold-line"></div>
+      <div class="contact-info" style="margin-top:32px">
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <div class="contact-label">Adresse</div>
+            <div class="contact-value" id="contact-address">Lomé, Togo<br>Retrouvez-nous sur Google Maps</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <div class="contact-label">WhatsApp / Téléphone</div>
+            <div class="contact-value" id="contact-phone">+228 91 09 21 21</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <div class="contact-label">Horaires</div>
+            <div class="contact-value" id="contact-hours">Lun–Dim : 10h00 – 23h00<br>Livraison disponible</div>
+          </div>
+        </div>
+        <div>
+          <div class="contact-label" style="margin-bottom:12px">Réseaux Sociaux</div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/restaurantbest.t" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/restaurantbest.t/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@restaurantbest.t" target="_blank" class="social-link"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/22891092121" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-block reveal reveal-delay-1">
+      <div style="font-size:2.5rem;margin-bottom:16px">🍔</div>
+      <h3>Prêt à Commander ?</h3>
+      <p>Commandez directement via WhatsApp pour une livraison rapide ou venez nous rendre visite. Notre équipe est prête à vous accueillir.</p>
+      <a href="https://wa.me/22891092121?text=Bonjour ! Je voudrais passer une commande." target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp" style="font-size:1.2rem"></i> Commander sur WhatsApp
+      </a>
+      <p style="margin-top:16px;font-size:.75rem;color:var(--white30)">Réponse garantie en moins de 5 minutes</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">best.t lounge bar</div>
+      <p class="footer-tagline">N°1 des restaurants fast food et terrasses lounges de la capitale. Chez nous, notre seul patron c'est notre Client.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="#about">À Propos</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#promo">Promos</a></li>
+        <li><a href="#events">Événements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Réseaux</h5>
+      <ul>
+        <li><a href="https://www.facebook.com/restaurantbest.t" target="_blank"><i class="fab fa-facebook-f" style="width:16px"></i> Facebook</a></li>
+        <li><a href="https://www.instagram.com/restaurantbest.t/" target="_blank"><i class="fab fa-instagram" style="width:16px"></i> Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@restaurantbest.t" target="_blank"><i class="fab fa-tiktok" style="width:16px"></i> TikTok</a></li>
+        <li><a href="https://wa.me/22891092121" target="_blank"><i class="fab fa-whatsapp" style="width:16px"></i> WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Best.T Lounge Bar. Tous droits réservés.</span>
+    <span>Fait avec ❤️ à Lomé, Togo</span>
+  </div>
+</footer>
+
+<!-- STICKY WA -->
+<a href="https://wa.me/22891092121" target="_blank" class="sticky-wa"><i class="fab fa-whatsapp"></i></a>
+
+<!-- CMS TOGGLE -->
+<button id="cms-toggle-btn" onclick="toggleCMS()">
+  <i class="fas fa-sliders-h"></i> Admin CMS
+</button>
+
+<!-- CMS PANEL -->
+<div id="cms-panel">
+  <div class="cms-header">
+    <h2><i class="fas fa-magic" style="font-size:1rem;margin-right:8px"></i> CMS Best.T</h2>
+    <button class="cms-close" onclick="toggleCMS()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="cms-body">
+    <!-- TABS -->
+    <div class="cms-tabs">
+      <button class="cms-tab active" onclick="switchCMSTab('general',this)">Général</button>
+      <button class="cms-tab" onclick="switchCMSTab('menu',this)">Menu</button>
+      <button class="cms-tab" onclick="switchCMSTab('promo',this)">Promos</button>
+      <button class="cms-tab" onclick="switchCMSTab('gallery',this)">Galerie</button>
+    </div>
+
+    <!-- TAB: GENERAL -->
+    <div class="cms-tab-content active" id="cms-tab-general">
+
+      <div class="cms-section">
+        <div class="cms-section-title"><i class="fas fa-image"></i> Image Hero</div>
+        <div class="cms-field">
+          <div class="cms-img-field">
+            <img class="cms-img-preview" id="preview-hero-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=60" alt="">
+            <label class="cms-file-btn">
+              <i class="fas fa-upload"></i> Uploader une image
+              <input type="file" class="cms-file-input" accept="image/*" onchange="handleImageUpload(this,'hero-img','preview-hero-img')">
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="cms-section">
+        <div class="cms-section-title"><i class="fas fa-heading"></i> Textes Hero</div>
+        <div class="cms-field">
+          <label class="cms-label">Badge</label>
+          <input type="text" class="cms-input" id="cms-hero-badge" value="Lounge Bar & Fast Food — Lomé" oninput="liveUpdate('hero-badge-text',this.value)">
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Sous-titre</label>
+          <textarea class="cms-textarea" id="cms-hero-subtitle" oninput="liveUpdate('hero-subtitle',this.value)">Cuisine locale, ingrédients naturels, terrasse lounge et service d'exception. Le N°1 des restaurants fast food de la capitale.</textarea>
+        </div>
+      </div>
+
+      <div class="cms-section">
+        <div class="cms-section-title"><i class="fas fa-chart-bar"></i> Statistiques</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div class="cms-field">
+            <label class="cms-label">Stat 1 - Nombre</label>
+            <input type="text" class="cms-input" value="5+" oninput="liveUpdate('stat1-num',this.value)">
+          </div>
+          <div class="cms-field">
+            <label class="cms-label">Stat 1 - Label</label>
+            <input type="text" class="cms-input" value="Années d'Excellence" oninput="liveUpdate('stat1-label',this.value)">
+          </div>
+          <div class="cms-field">
+            <label class="cms-label">Stat 2 - Nombre</label>
+            <input type="text" class="cms-input" value="200+" oninput="liveUpdate('stat2-num',this.value)">
+          </div>
+          <div class="cms-field">
+            <label class="cms-label">Stat 2 - Label</label>
+            <input type="text" class="cms-input" value="Plats au Menu" oninput="liveUpdate('stat2-label',this.value)">
+          </div>
+          <div class="cms-field">
+            <label class="cms-label">Stat 3 - Nombre</label>
+            <input type="text" class="cms-input" value="10K+" oninput="liveUpdate('stat3-num',this.value)">
+          </div>
+          <div class="cms-field">
+            <label class="cms-label">Stat 3 - Label</label>
+            <input type="text" class="cms-input" value="Clients Satisfaits" oninput="liveUpdate('stat3-label',this.value)">
+          </div>
+        </div>
+      </div>
+
+      <div class="cms-section">
+        <div class="cms-section-title"><i class="fas fa-info-circle"></i> Section À Propos</div>
+        <div class="cms-field">
+          <label class="cms-label">Image principale</label>
+          <div class="cms-img-field">
+            <img class="cms-img-preview" id="preview-about-main" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&q=60">
+            <label class="cms-file-btn">
+              <i class="fas fa-upload"></i> Uploader
+              <input type="file" class="cms-file-input" accept="image/*" onchange="handleImageUpload(this,'about-img-main','preview-about-main')">
+            </label>
+          </div>
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Image secondaire</label>
+          <div class="cms-img-field">
+            <img class="cms-img-preview" id="preview-about-sec" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=60">
+            <label class="cms-file-btn">
+              <i class="fas fa-upload"></i> Uploader
+              <input type="file" class="cms-file-input" accept="image/*" onchange="handleImageUpload(this,'about-img-secondary','preview-about-sec')">
+            </label>
+          </div>
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Texte à propos</label>
+          <textarea class="cms-textarea" oninput="liveUpdate('about-text',this.value)">Chez Best.T, nous avons un seul patron : notre Client. Nous cuisinons avec des produits locaux et des ingrédients naturels pour vous offrir une expérience culinaire authentique et inoubliable dans un cadre lounge exceptionnel.</textarea>
+        </div>
+      </div>
+
+      <div class="cms-section">
+        <div class="cms-section-title"><i class="fas fa-address-card"></i> Contact</div>
+        <div class="cms-field">
+          <label class="cms-label">Adresse</label>
+          <textarea class="cms-textarea" style="min-height:60px" oninput="liveUpdate('contact-address',this.value)">Lomé, Togo
+Retrouvez-nous sur Google Maps</textarea>
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Téléphone</label>
+          <input type="text" class="cms-input" value="+228 91 09 21 21" oninput="liveUpdate('contact-phone',this.value)">
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Horaires</label>
+          <textarea class="cms-textarea" style="min-height:60px" oninput="liveUpdate('contact-hours',this.value)">Lun–Dim : 10h00 – 23h00
+Livraison disponible</textarea>
+        </div>
+      </div>
+
+      <button class="cms-save-btn" onclick="saveAll()"><i class="fas fa-save" style="margin-right:8px"></i>Sauvegarder les Changements</button>
+      <div id="cms-status" class="cms-status">✅ Changements sauvegardés avec succès !</div>
+      <button class="cms-reset-btn" onclick="resetAll()">Réinitialiser (effacer les données)</button>
+    </div>
+
+    <!-- TAB: MENU -->
+    <div class="cms-tab-content" id="cms-tab-menu">
+      <div class="cms-section">
+        <div class="cms-section-title"><i class="fas fa-utensils"></i> Plats du Menu</div>
+        <p style="font-size:.78rem;color:var(--white60);margin-bottom:16px;line-height:1.6">Modifiez les plats affichés sur la page. Les changements sont immédiats.</p>
+        <div id="cms-menu-items"><!-- generated --></div>
+        <button class="cms-save-btn" onclick="saveAll()" style="margin-top:16px"><i class="fas fa-save" style="margin-right:8px"></i>Sauvegarder</button>
+        <div id="cms-status-menu" class="cms-status">✅ Menu sauvegardé !</div>
+      </div>
+    </div>
+
+    <!-- TAB: PROMO -->
+    <div class="cms-tab-content" id="cms-tab-promo">
+      <div class="cms-section">
+        <div class="cms-section-title"><i class="fas fa-tag"></i> Pack Promo 1</div>
+        <div class="cms-field">
+          <label class="cms-label">Image</label>
+          <div class="cms-img-field">
+            <img class="cms-img-preview" id="preview-promo1" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=60">
+            <label class="cms-file-btn">
+              <i class="fas fa-upload"></i> Uploader
+              <input type="file" class="cms-file-input" accept="image/*" onchange="handleImageUpload(this,'promo1-img','preview-promo1')">
+            </label>
+          </div>
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Titre</label>
+          <input type="text" class="cms-input" value="Pack Duo Gourmand" oninput="liveUpdate('promo1-title',this.value)">
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Description</label>
+          <textarea class="cms-textarea" oninput="liveUpdate('promo1-text',this.value)">2 burgers maison + 2 frites + 2 boissons fraîches. Le combo parfait pour partager un moment savoureux.</textarea>
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Prix (FCFA)</label>
+          <input type="text" class="cms-input" value="3 200 FCFA" oninput="liveUpdate('promo1-price',this.value)">
+        </div>
+      </div>
+      <div class="cms-section">
+        <div class="cms-section-title"><i class="fas fa-tag"></i> Pack Promo 2</div>
+        <div class="cms-field">
+          <label class="cms-label">Image</label>
+          <div class="cms-img-field">
+            <img class="cms-img-preview" id="preview-promo2" src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=400&q=60">
+            <label class="cms-file-btn">
+              <i class="fas fa-upload"></i> Uploader
+              <input type="file" class="cms-file-input" accept="image/*" onchange="handleImageUpload(this,'promo2-img','preview-promo2')">
+            </label>
+          </div>
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Titre</label>
+          <input type="text" class="cms-input" value="Pack Famille XL" oninput="liveUpdate('promo2-title',this.value)">
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Description</label>
+          <textarea class="cms-textarea" oninput="liveUpdate('promo2-text',this.value)">4 plats locaux + salade + dessert maison + 4 boissons. Idéal pour régaler toute la famille.</textarea>
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Prix (FCFA)</label>
+          <input type="text" class="cms-input" value="6 500 FCFA" oninput="liveUpdate('promo2-price',this.value)">
+        </div>
+      </div>
+      <button class="cms-save-btn" onclick="saveAll()"><i class="fas fa-save" style="margin-right:8px"></i>Sauvegarder</button>
+      <div id="cms-status-promo" class="cms-status">✅ Promos sauvegardées !</div>
+    </div>
+
+    <!-- TAB: GALLERY -->
+    <div class="cms-tab-content" id="cms-tab-gallery">
+      <div class="cms-section">
+        <div class="cms-section-title"><i class="fas fa-images"></i> Photos de la Galerie</div>
+        <p style="font-size:.78rem;color:var(--white60);margin-bottom:16px;line-height:1.6">Uploadez vos photos pour remplir la galerie. La première image sera la grande.</p>
+        <div id="cms-gallery-items"></div>
+        <button class="cms-save-btn" onclick="saveAll()" style="margin-top:16px"><i class="fas fa-save" style="margin-right:8px"></i>Sauvegarder</button>
+        <div id="cms-status-gallery" class="cms-status">✅ Galerie sauvegardée !</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ========================
+// DATA
+// ========================
+const defaultMenu = [
+  {id:'m1',name:'Burger Best.T Classic',desc:'Notre burger signature avec viande locale, fromage fondu et sauce maison.',price:'1 800 FCFA',cat:'fast',badge:'Best Seller',img:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80'},
+  {id:'m2',name:'Brochettes Grillées',desc:'Brochettes de viande marinées aux épices locales, accompagnées de sauce pimentée.',price:'2 200 FCFA',cat:'local',badge:'',img:'https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80'},
+  {id:'m3',name:'Poulet Rôti Entier',desc:'Poulet élevé localement, rôti à la perfection avec herbes aromatiques.',price:'4 500 FCFA',cat:'local',badge:'Chef\'s Choice',img:'https://images.unsplash.com/photo-1432139509613-5c4255815697?w=600&q=80'},
+  {id:'m4',name:'Frites Maison',desc:'Frites artisanales croustillantes, coupées à la main et frites dans l\'huile fraîche.',price:'800 FCFA',cat:'fast',badge:'',img:'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&q=80'},
+  {id:'m5',name:'Jus de Fruits Frais',desc:'Jus préparés minute avec des fruits locaux de saison. Mangue, Bissap, Gingembre.',price:'500 FCFA',cat:'drinks',badge:'Frais du Jour',img:'https://images.unsplash.com/photo-1546173159-315724a31696?w=600&q=80'},
+  {id:'m6',name:'Pizza Best.T',desc:'Pizza artisanale garnie de légumes frais et viande locale sur pâte maison.',price:'3 500 FCFA',cat:'fast',badge:'',img:'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&q=80'},
+];
+
+const defaultEvents = [
+  {id:'e1',name:'Soirée Afrobeats',day:'15',month:'Juil',time:'20h00',type:'Musique Live',desc:'Une nuit de musique afro avec nos DJs et artistes locaux. Ambiance garantie !',img:'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80'},
+  {id:'e2',name:'Brunch du Dimanche',day:'20',month:'Juil',time:'10h00',type:'Gastronomie',desc:'Un brunch dominical généreux avec nos spécialités et boissons fraîches.',img:'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80'},
+  {id:'e3',name:'Soirée Lounge Premium',day:'26',month:'Juil',time:'19h00',type:'Cocktails',desc:'Cocktails exclusifs, ambiance lounge et tapas raffinées pour une soirée d\'exception.',img:'https://images.unsplash.com/photo-1525268323446-0505b6fe7778?w=600&q=80'},
+];
+
+const defaultGallery = [
+  'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80',
+  'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80',
+  'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80',
+  'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&q=80',
+  'https://images.unsplash.com/photo-1432139509613-5c4255815697?w=600&q=80',
+];
+
+// ========================
+// STATE (localStorage)
+// ========================
+let state = {
+  menu: [...defaultMenu],
+  events: [...defaultEvents],
+  gallery: [...defaultGallery],
+};
+
+function loadState(){
+  const saved = localStorage.getItem('bestt_cms');
+  if(saved){
+    try{ state = {...state,...JSON.parse(saved)}; }catch(e){}
+  }
+}
+
+function saveAll(){
+  localStorage.setItem('bestt_cms',JSON.stringify(state));
+  ['cms-status','cms-status-menu','cms-status-promo','cms-status-gallery'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el){ el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),2500); }
+  });
+}
+
+function resetAll(){
+  if(confirm('Réinitialiser toutes les données ? Cette action est irréversible.')){
+    localStorage.removeItem('bestt_cms');
+    location.reload();
+  }
+}
+
+// ========================
+// RENDER
+// ========================
+function renderMenu(cat='all'){
+  const grid = document.getElementById('menu-grid');
+  const items = cat==='all' ? state.menu : state.menu.filter(i=>i.cat===cat);
+  grid.innerHTML = items.map(item=>`
+    <div class="menu-card reveal">
+      <div class="menu-card-img-wrap">
+        <img class="menu-card-img" src="${item.img}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80'">
+        ${item.badge?`<div class="menu-badge">${item.badge}</div>`:''}
+      </div>
+      <div class="menu-card-body">
+        <div class="menu-card-name">${item.name}</div>
+        <div class="menu-card-desc">${item.desc}</div>
+        <div class="menu-card-footer">
+          <div class="menu-card-price">${item.price}</div>
+          <a href="https://wa.me/22891092121?text=Je veux commander : ${encodeURIComponent(item.name)}" target="_blank" class="menu-order-btn">Commander</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  observeReveal();
+}
+
+function renderEvents(){
+  const grid = document.getElementById('events-grid');
+  grid.innerHTML = state.events.map(ev=>`
+    <div class="event-card reveal">
+      <div class="event-img-wrap">
+        <img class="event-img" src="${ev.img}" alt="${ev.name}" onerror="this.src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80'">
+        <div class="event-date-badge">
+          <span class="event-date-day">${ev.day}</span>
+          <span class="event-date-month">${ev.month}</span>
+        </div>
+      </div>
+      <div class="event-body">
+        <div class="event-name">${ev.name}</div>
+        <div class="event-meta">
+          <span><i class="fas fa-clock"></i> ${ev.time}</span>
+          <span><i class="fas fa-tag"></i> ${ev.type}</span>
+        </div>
+        <div class="event-desc">${ev.desc}</div>
+      </div>
+    </div>
+  `).join('');
+  observeReveal();
+}
+
+function renderGallery(){
+  const grid = document.getElementById('gallery-grid');
+  grid.innerHTML = state.gallery.map((src,i)=>`
+    <div class="gallery-item reveal">
+      <img src="${src}" alt="Galerie Best.T" onerror="this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80'" style="height:${i===0?'100%':'180px'}">
+    </div>
+  `).join('');
+  observeReveal();
+}
+
+function renderCMSMenu(){
+  const container = document.getElementById('cms-menu-items');
+  container.innerHTML = state.menu.map((item,i)=>`
+    <div class="menu-item-cms">
+      <div class="menu-item-cms-header" onclick="toggleCMSMenuItem(${i})">
+        <span class="menu-item-cms-title">${item.name}</span>
+        <button class="menu-item-expand"><i class="fas fa-chevron-down" id="chevron-${i}"></i></button>
+      </div>
+      <div class="menu-item-body" id="menu-item-body-${i}">
+        <div class="cms-field">
+          <label class="cms-label">Photo</label>
+          <div class="cms-img-field">
+            <img class="cms-img-preview" id="preview-menu-${i}" src="${item.img}">
+            <label class="cms-file-btn">
+              <i class="fas fa-upload"></i> Changer la photo
+              <input type="file" class="cms-file-input" accept="image/*" onchange="handleMenuImageUpload(this,${i})">
+            </label>
+          </div>
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Nom du plat</label>
+          <input type="text" class="cms-input" value="${item.name}" oninput="updateMenuItem(${i},'name',this.value)">
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Description</label>
+          <textarea class="cms-textarea" style="min-height:65px" oninput="updateMenuItem(${i},'desc',this.value)">${item.desc}</textarea>
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Prix</label>
+          <input type="text" class="cms-input" value="${item.price}" oninput="updateMenuItem(${i},'price',this.value)">
+        </div>
+        <div class="cms-field">
+          <label class="cms-label">Badge (laisser vide si aucun)</label>
+          <input type="text" class="cms-input" value="${item.badge}" oninput="updateMenuItem(${i},'badge',this.value)">
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderCMSGallery(){
+  const container = document.getElementById('cms-gallery-items');
+  container.innerHTML = state.gallery.map((src,i)=>`
+    <div class="cms-field">
+      <label class="cms-label">Photo ${i+1}${i===0?' (Grande image)':''}</label>
+      <div class="cms-img-field">
+        <img class="cms-img-preview" id="preview-gallery-${i}" src="${src}">
+        <label class="cms-file-btn">
+          <i class="fas fa-upload"></i> Changer cette photo
+          <input type="file" class="cms-file-input" accept="image/*" onchange="handleGalleryImageUpload(this,${i})">
+        </label>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ========================
+// INTERACTIONS
+// ========================
+function filterMenu(cat, btn){
+  document.querySelectorAll('.menu-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderMenu(cat);
+}
+
+function toggleMobile(){
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+
+function toggleCMS(){
+  document.getElementById('cms-panel').classList.toggle('open');
+}
+
+function switchCMSTab(tab, btn){
+  document.querySelectorAll('.cms-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.cms-tab-content').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('cms-tab-'+tab).classList.add('active');
+}
+
+function liveUpdate(id, val){
+  const el = document.getElementById(id);
+  if(el) el.textContent = val;
+}
+
+function handleImageUpload(input, targetId, previewId){
+  const file = input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e=>{
+    const src = e.target.result;
+    document.getElementById(targetId).src = src;
+    document.getElementById(previewId).src = src;
+  };
+  reader.readAsDataURL(file);
+}
+
+function handleMenuImageUpload(input, index){
+  const file = input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e=>{
+    const src = e.target.result;
+    state.menu[index].img = src;
+    document.getElementById('preview-menu-'+index).src = src;
+    renderMenu();
+    renderCMSMenu();
+  };
+  reader.readAsDataURL(file);
+}
+
+function handleGalleryImageUpload(input, index){
+  const file = input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e=>{
+    const src = e.target.result;
+    state.gallery[index] = src;
+    document.getElementById('preview-gallery-'+index).src = src;
+    renderGallery();
+  };
+  reader.readAsDataURL(file);
+}
+
+function updateMenuItem(index, field, val){
+  state.menu[index][field] = val;
+  renderMenu();
+}
+
+function toggleCMSMenuItem(i){
+  const body = document.getElementById('menu-item-body-'+i);
+  const chevron = document.getElementById('chevron-'+i);
+  body.classList.toggle('open');
+  chevron.style.transform = body.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+}
+
+// ========================
+// SCROLL REVEAL
+// ========================
+function observeReveal(){
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting) e.target.classList.add('visible');
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>observer.observe(el));
+}
+
+// ========================
+// INIT
+// ========================
+loadState();
+renderMenu();
+renderEvents();
+renderGallery();
+renderCMSMenu();
+renderCMSGallery();
+observeReveal();
+
+window.addEventListener('scroll', ()=>{
+  const nav = document.querySelector('nav');
+  nav.style.background = window.scrollY > 50 ? 'rgba(12,11,9,0.98)' : 'rgba(12,11,9,0.92)';
+  observeReveal();
+});
+</script>
+</body>
+</html>
